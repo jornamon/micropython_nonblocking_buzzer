@@ -11,7 +11,7 @@
 
 
  ## Considerations
- If you have a complex program with different routines that need to collaborate without blocking one another, you should probably check [uasyncio](https://docs.micropython.org/en/latest/library/uasyncio.html). You can implement this kind of nonblocking buzzer with asyncio, but if the buzzer is the only nonblocking routine you need to call, this implementation may be simpler, in fact, in my testing I have seen that this implementation introduces less delay in the main loop than the asyncio version.
+ If you have a complex program with different routines that need to collaborate without blocking one another, you should probably check [uasyncio](https://docs.micropython.org/en/latest/library/uasyncio.html). You can implement this kind of nonblocking buzzer with asyncio, but if the buzzer is the only nonblocking routine you need to call, this implementation may be simpler, in fact, in my testing I have seen that this implementation introduces less variance in the main loop time than the asyncio version.
 
  The check() method takes very little time in the main loop, so it introduces very little time penalty, but if your main loop takes too much time, the timing of the notes will get distorted.
 
